@@ -1,10 +1,238 @@
-<!-- Hero -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Sota | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    /* ===== Base ===== */
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0b1020;
+      color: #e5e7eb;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    h1, h2 {
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    /* ===== Hero ===== */
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background:
+        radial-gradient(1200px 600px at 50% -10%, #1e293b, transparent),
+        linear-gradient(180deg, #020617, #0b1020);
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.2rem);
+      margin: 0;
+    }
+
+    .hero .subtitle {
+      margin-top: 12px;
+      font-size: 1.05rem;
+      color: #94a3b8;
+    }
+
+    .scroll {
+      margin-top: 64px;
+      font-size: 0.75rem;
+      color: #64748b;
+      letter-spacing: 0.15em;
+    }
+
+    /* ===== Container ===== */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+
+    section {
+      margin-bottom: 96px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 40px;
+      border-bottom: 1px solid #1e293b;
+      padding-bottom: 12px;
+    }
+
+    p {
+      line-height: 1.7;
+      color: #cbd5f5;
+    }
+
+    /* ===== Timeline ===== */
+    .timeline {
+      position: relative;
+      padding-left: 40px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(to bottom, #38bdf8, rgba(56,189,248,0.15));
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 56px;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: all 0.6s ease;
+    }
+
+    .timeline-item.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -34px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #0b1020;
+      border: 2px solid #38bdf8;
+      opacity: 0;
+      transform: scale(0.6);
+      transition: all 0.4s ease;
+    }
+
+    .timeline-item.show::before {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .timeline-date {
+      font-size: 0.85rem;
+      color: #7dd3fc;
+      margin-bottom: 6px;
+    }
+
+    .timeline-text {
+      color: #cbd5f5;
+      line-height: 1.7;
+    }
+
+    /* ===== Cards for Projects/Work ===== */
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: #111827;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #1e293b;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.8s ease;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .card.show {
+      opacity: 1;
+      transform: translateY(0);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+      color: #38bdf8;
+    }
+
+    .card p {
+      margin: 0;
+      line-height: 1.6;
+      color: #cbd5f5;
+      font-size: 0.95rem;
+    }
+
+    /* ===== Skills List ===== */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .skill {
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.15);
+      color: #7dd3fc;
+      font-size: 0.85rem;
+      border: 1px solid rgba(56,189,248,0.3);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      padding: 32px 16px;
+      border-top: 1px solid #1e293b;
+      color: #64748b;
+      font-size: 0.85rem;
+    }
+
+    /* ===== Mobile ===== */
+    @media (max-width: 600px) {
+      .container {
+        padding: 64px 16px;
+      }
+      .card-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+ <!-- Hero -->
 <header>
   <canvas id="hero-canvas"></canvas>
   <div class="hero">
     <h1>颯太 / Sota</h1>
     <p class="subtitle">Okinawa KOSEN Student</p>
-    <div class="scroll">SCROLL ↓↓</div>
+    <div class="scroll">SCROLL</div>
   </div>
 </header>
 
@@ -80,3 +308,160 @@
 
   animate();
 </script>
+
+  <!-- Main -->
+  <main class="container">
+
+    <!-- Experience Timeline -->
+    <section>
+      <h2>Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">2022年</div>
+          <div class="timeline-text">ハワイ短期留学に参加。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2023年4月</div>
+          <div class="timeline-text">沖縄工業高等専門学校 入学。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2024年2月</div>
+          <div class="timeline-text">ハッカソンに参加。Flutterでのアプリ開発を経験。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2024年11月</div>
+          <div class="timeline-text">
+            ペットボトルからフィラメントを再生する技術を開発。<br>
+            天然マイカを使用しない新しいアイシャドウの研究・開発に取り組む。
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2025年2月</div>
+          <div class="timeline-text">高専起業家サミットにて最優秀賞を受賞。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2025年3月</div>
+          <div class="timeline-text">社会実装フォーラムに出場。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2025年5月</div>
+          <div class="timeline-text">トビタテ！留学JAPAN 採択。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2025年9月まで</div>
+          <div class="timeline-text">カナダ・トロントに留学（トロント大学）。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2025年11月</div>
+          <div class="timeline-text">京都大学主催 テクノ愛2025 優秀賞を受賞。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2025年11月</div>
+          <div class="timeline-text">OSIT主催「Score」に出場。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2026年1月</div>
+          <div class="timeline-text">高専防災減災コンテストにて企業賞を受賞。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">現在</div>
+          <div class="timeline-text">DCON 二次審査を通過し、本選に向けて研究を継続中。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section>
+      <h2>Projects</h2>
+      <div class="card-container">
+        <div class="card">
+          <h3>SOFIA</h3>
+          <p>音波消火器を搭載したドローンの研究・開発。防災・減災分野への応用を目指す。</p>
+        </div>
+        <div class="card">
+          <h3>トビタテ生向けアプリ</h3>
+          <p>留学経験を可視化・共有するためのアプリを開発中。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section>
+      <h2>Work</h2>
+      <div class="card-container">
+        <div class="card">
+          <h3>SNS広報・運用支援</h3>
+          <p>Instagramを中心としたSNS運用の企画・コンサルティング。</p>
+        </div>
+        <div class="card">
+          <h3>動画撮影・編集</h3>
+          <p>広報・発信用の動画撮影および編集を担当。</p>
+        </div>
+        <div class="card">
+          <h3>ポスター・ビジュアル制作</h3>
+          <p>イベント告知やSNS用デザインを制作。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section>
+      <h2>Skills</h2>
+      <div class="skills">
+        <span class="skill">HTML / CSS</span>
+        <span class="skill">Python</span>
+        <span class="skill">アプリ開発（Xcode）</span>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section>
+      <h2>Contact</h2>
+      <ul>
+        <li>GitHub：<a href="https://github.com/sosaks" target="_blank">github.com/sosaks</a></li>
+        <li>Mail：<a href="mailto:xxxxx@gmail.com">xxxxx@gmail.com</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Sota</p>
+  </footer>
+
+  <!-- Animation -->
+  <script>
+    const sections = document.querySelectorAll("section");
+    const timelineItems = document.querySelectorAll(".timeline-item");
+    const cards = document.querySelectorAll(".card");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add("show");
+
+          // Timeline animation
+          if(entry.target.querySelectorAll(".timeline-item").length){
+            const items = entry.target.querySelectorAll(".timeline-item");
+            items.forEach((item, index) => {
+              setTimeout(()=>{item.classList.add("show")}, index*120);
+            });
+          }
+
+          // Card animation
+          if(entry.target.querySelectorAll(".card").length){
+            const cardList = entry.target.querySelectorAll(".card");
+            cardList.forEach((card,index)=>{
+              setTimeout(()=>{card.classList.add("show")}, index*120);
+            });
+          }
+        }
+      });
+    }, {threshold:0.2});
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+
+</body>
+</html>
