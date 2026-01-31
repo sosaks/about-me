@@ -4,18 +4,155 @@
   <meta charset="UTF-8" />
   <title>Sota | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ===== Base ===== */
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0b1020;
+      color: #e5e7eb;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== Hero (Apple-style) ===== */
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background:
+        radial-gradient(1200px 600px at 50% -10%, #1e293b, transparent),
+        linear-gradient(180deg, #020617, #0b1020);
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 6vw, 4.5rem);
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+
+    .hero .subtitle {
+      margin-top: 12px;
+      font-size: 1.1rem;
+      color: #94a3b8;
+    }
+
+    .hero .tagline {
+      margin-top: 28px;
+      font-size: 1.3rem;
+      line-height: 1.6;
+      color: #e5e7eb;
+    }
+
+    .hero .badge {
+      display: inline-block;
+      margin-top: 32px;
+      padding: 8px 14px;
+      font-size: 0.9rem;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.15);
+      color: #7dd3fc;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .scroll {
+      margin-top: 60px;
+      font-size: 0.8rem;
+      color: #64748b;
+      letter-spacing: 0.15em;
+    }
+
+    /* ===== Layout ===== */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+
+    section {
+      margin-bottom: 72px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 24px;
+      border-bottom: 1px solid #1e293b;
+      padding-bottom: 10px;
+    }
+
+    p {
+      line-height: 1.8;
+      color: #cbd5f5;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    li {
+      margin: 12px 0;
+      line-height: 1.7;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      padding: 32px 16px;
+      border-top: 1px solid #1e293b;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    /* ===== Mobile ===== */
+    @media (max-width: 600px) {
+      .container {
+        padding: 64px 16px;
+      }
+
+      .hero .tagline {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- Header -->
+  <!-- Hero -->
   <header>
-    <div class="container">
+    <div class="hero">
       <h1>颯太 / Sota</h1>
-      <p class="subtitle">
-        沖縄高専 在学 ｜ トビタテ！留学JAPAN 第10期
+      <p class="subtitle">Okinawa KOSEN Student</p>
+
+      <p class="tagline">
+        Technology × Challenge<br />
+        社会課題に向き合う、実践型エンジニア学生
       </p>
+
+      <span class="badge">Tobitate! JAPAN Scholar</span>
+
+      <div class="scroll">SCROLL</div>
     </div>
   </header>
 
@@ -25,116 +162,74 @@
     <section>
       <h2>Profile</h2>
       <p>
-        沖縄高専に在学中。トビタテ！留学JAPAN第10期生として海外留学を経験。
-        技術を通して社会課題に向き合うことに関心がある。
+        沖縄高専に在学中。トビタテ！留学JAPAN第10期生としてカナダ・トロントへ留学。
+        技術を通して社会課題に向き合い、実装まで落とし込むことを大切にしている。
       </p>
     </section>
 
-    <!-- Timeline -->
-    <section class="timeline">
-      <h2>Timeline</h2>
+    <section>
+      <h2>Experience</h2>
+      <ul>
+        <li>2022年 ハワイ短期留学</li>
+        <li>2023年4月 沖縄高専 入学</li>
+        <li>2024年 ハッカソン参加・研究開発</li>
+        <li>2025年 トビタテ留学JAPAN 採択（トロント大学）</li>
+        <li>高専起業家サミット最優秀賞 / 社会実装フォーラム出場 ほか</li>
+      </ul>
+    </section>
 
-      <div class="timeline-item">
-        <div class="dot"></div>
-        <div class="content">
-          <span class="year">2022</span>
-          <p>ハワイ短期留学に参加。</p>
-        </div>
-      </div>
+    <section>
+      <h2>Projects</h2>
+      <ul>
+        <li>
+          <strong>SOFIA</strong><br />
+          音波消火器を搭載したドローンの研究・開発。防災・減災分野への応用を目指す。
+        </li>
+        <li>
+          <strong>トビタテ生向けアプリ</strong><br />
+          留学経験を可視化・共有するためのアプリを開発中。
+        </li>
+      </ul>
+    </section>
 
-      <div class="timeline-item">
-        <div class="dot"></div>
-        <div class="content">
-          <span class="year">2023.04</span>
-          <p>沖縄工業高等専門学校に入学。</p>
-        </div>
-      </div>
+    <section>
+      <h2>Work</h2>
+      <ul>
+        <li>
+          <strong>SNS広報・運用支援</strong><br />
+          Instagramを中心としたSNS運用の企画・コンサルティング。
+        </li>
+        <li>
+          <strong>動画撮影・編集</strong><br />
+          広報・発信用の動画撮影および編集を担当。
+        </li>
+        <li>
+          <strong>ポスター・ビジュアル制作</strong><br />
+          イベント告知やSNS用デザインを制作。
+        </li>
+      </ul>
+    </section>
 
-      <div class="timeline-item">
-        <div class="dot"></div>
-        <div class="content">
-          <span class="year">2024.02</span>
-          <p>ハッカソンに参加。</p>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="dot"></div>
-        <div class="content">
-          <span class="year">2024.11</span>
-          <p>
-            ペットボトルからフィラメントを再生する技術を開発。
-            天然マイカを使用しない新しいアイシャドウの開発。
-          </p>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="dot"></div>
-        <div class="content">
-          <span class="year">2025.02</span>
-          <p>高専起業家サミット 最優秀賞。</p>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="dot"></div>
-        <div class="content">
-          <span class="year">2025.03</span>
-          <p>社会実装フォーラム出場。</p>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="dot"></div>
-        <div class="content">
-          <span class="year">2025.05</span>
-          <p>トビタテ！留学JAPAN 第10期生に採択。</p>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="dot"></div>
-        <div class="content">
-          <span class="year">2025.05 – 09</span>
-          <p>カナダ・トロント留学（トロント大学）。</p>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="dot"></div>
-        <div class="content">
-          <span class="year">2025.11</span>
-          <p>京都大学主催 テクノ愛2025 優秀賞。</p>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="dot"></div>
-        <div class="content">
-          <span class="year">2026.01</span>
-          <p>高専防災減災コンテスト 企業賞。</p>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="dot"></div>
-        <div class="content">
-          <span class="year">Now</span>
-          <p>DCON 二次審査を通過し、本選に向けて研究中。</p>
-        </div>
-      </div>
+    <section>
+      <h2>Skills</h2>
+      <ul>
+        <li>HTML / CSS</li>
+        <li>Python</li>
+        <li>アプリ開発（Xcode）</li>
+      </ul>
     </section>
 
     <section>
       <h2>Contact</h2>
       <ul>
-        <li>GitHub：
+        <li>
+          GitHub：
           <a href="https://github.com/sosaks" target="_blank">
             github.com/sosaks
           </a>
         </li>
-        <li>Mail：
+        <li>
+          Mail：
           <a href="mailto:xxxxx@gmail.com">
             xxxxx@gmail.com
           </a>
@@ -148,22 +243,19 @@
     <p>© 2026 Sota</p>
   </footer>
 
-  <!-- フェードイン用JS -->
+  <!-- Fade-in -->
   <script>
-    const items = document.querySelectorAll(".timeline-item");
+    const sections = document.querySelectorAll("section");
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.15 });
 
-    items.forEach((item) => observer.observe(item));
+    sections.forEach(section => observer.observe(section));
   </script>
 
 </body>
