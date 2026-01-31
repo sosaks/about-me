@@ -1,7 +1,6 @@
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   margin: 0;
-  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: #0f172a;
   color: #e5e7eb;
 }
@@ -9,19 +8,34 @@ body {
 .container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 80px 24px;
+  padding: 40px 24px;
 }
 
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+/* Header */
+header {
+  background: #020617;
+  border-bottom: 1px solid #1e293b;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+}
+
+.subtitle {
+  margin-top: 8px;
+  color: #94a3b8;
+}
+
+/* Main */
+section {
+  margin-bottom: 48px;
 }
 
 h2 {
-  margin-top: 3rem;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   border-bottom: 1px solid #334155;
-  padding-bottom: 0.5rem;
+  padding-bottom: 8px;
 }
 
 p {
@@ -34,5 +48,49 @@ ul {
 }
 
 li {
-  margin: 0.5rem 0;
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+/* Links */
+a {
+  color: #38bdf8;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  border-top: 1px solid #1e293b;
+  text-align: center;
+  padding: 24px;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  body {
+    font-size: 0.95rem;
+  }
+
+  .container {
+    padding: 24px 16px;
+  }
 }
